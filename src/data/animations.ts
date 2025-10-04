@@ -499,65 +499,6 @@ loop();`
     updatedAt: '2024-01-16T10:08:00Z'
   },
   {
-    id: 'bg-water-ripple',
-    title: 'Water Ripple',
-    description: 'Looping water ripple distortion effect over the background',
-    category: 'background-effects',
-    prompt: 'Add a looping water ripple distortion effect to the background.',
-    code: {
-      html: `<div class="ripple-bg"><div class="content"><h2 class="bg-title">Water Ripple</h2></div></div>`,
-      css: `.ripple-bg {
-  height: 100vh;
-  width: 100%;
-  position: relative;
-  background: radial-gradient(circle at 50% 40%, #1f2937, #0b1220 60%);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.ripple-bg .content {
-  position: relative;
-  z-index: 2;
-  color: #e5e7eb;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-.ripple-bg::after {
-  content: '';
-  position: absolute;
-  inset: -50% -50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.08) 10%, transparent 11%) 0 0/20px 20px;
-  animation: ripple 6s linear infinite;
-  mix-blend-mode: overlay;
-  opacity: 0.4;
-  filter: blur(4px);
-}
-
-@keyframes ripple {
-  0% { transform: translate(0,0) scale(1); }
-  50% { transform: translate(2%,1%) scale(1.03); }
-  100% { transform: translate(0,0) scale(1); }
-}
-
-.bg-title {
-  font-size: 2rem !important;
-  margin: 0 !important;
-  font-weight: normal !important;
-  color: #e5e7eb !important;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-  text-align: center !important;
-}`,
-      framework: 'vanilla'
-    },
-    tags: ['background', 'ripple', 'water', 'distortion'],
-    previewType: 'inline',
-    isInteractive: false,
-    createdAt: '2024-01-16T10:10:00Z',
-    updatedAt: '2024-01-16T10:10:00Z'
-  },
-  {
     id: 'bg-cloud-drift',
     title: 'Cloud Drift',
     description: 'Soft clouds slowly drifting across the background',
@@ -1039,6 +980,170 @@ animate();`
     isInteractive: false,
     createdAt: '2024-01-15T12:00:00Z',
     updatedAt: '2024-01-15T12:00:00Z'
+  },
+  {
+    id: 'animated-prism-background',
+    title: 'Animated Prism Background',
+    description: 'Crystalline prism shapes that rotate and refract light with rainbow effects',
+    category: 'background-effects',
+    prompt: 'Create an animated prism background with crystalline shapes that rotate and create rainbow light refraction effects.',
+    code: {
+      html: `<div class="prism-bg">
+  <div class="prism-container">
+    <div class="prism prism-1"></div>
+    <div class="prism prism-2"></div>
+    <div class="prism prism-3"></div>
+    <div class="prism prism-4"></div>
+    <div class="prism prism-5"></div>
+  </div>
+  <div class="content">
+    <h2 class="bg-title">Animated Prism Background</h2>
+  </div>
+</div>`,
+      css: `.prism-bg {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prism-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.prism {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(45deg,
+    rgba(255, 0, 150, 0.3) 0%,
+    rgba(0, 255, 255, 0.3) 25%,
+    rgba(255, 255, 0, 0.3) 50%,
+    rgba(255, 0, 255, 0.3) 75%,
+    rgba(0, 255, 0, 0.3) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px);
+  transform-style: preserve-3d;
+  animation: prism-rotate 20s linear infinite;
+}
+
+.prism::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ff0096, #00ffff, #ffff00, #ff00ff, #00ff00);
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0.5;
+  filter: blur(8px);
+  animation: prism-glow 4s ease-in-out infinite alternate;
+}
+
+.prism-1 {
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
+  animation-duration: 25s;
+  transform: rotate(45deg);
+}
+
+.prism-2 {
+  top: 60%;
+  left: 75%;
+  animation-delay: -5s;
+  animation-duration: 30s;
+  transform: rotate(135deg);
+}
+
+.prism-3 {
+  top: 30%;
+  left: 60%;
+  animation-delay: -10s;
+  animation-duration: 22s;
+  transform: rotate(225deg);
+}
+
+.prism-4 {
+  top: 70%;
+  left: 20%;
+  animation-delay: -15s;
+  animation-duration: 28s;
+  transform: rotate(315deg);
+}
+
+.prism-5 {
+  top: 20%;
+  left: 85%;
+  animation-delay: -20s;
+  animation-duration: 35s;
+  transform: rotate(180deg);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  color: #e5e7eb;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.bg-title {
+  font-size: 2rem !important;
+  margin: 0 !important;
+  font-weight: normal !important;
+  color: #e5e7eb !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  text-align: center !important;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes prism-rotate {
+  0% {
+    transform: rotate(0deg) rotateY(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(90deg) rotateY(90deg) scale(1.1);
+  }
+  50% {
+    transform: rotate(180deg) rotateY(180deg) scale(0.9);
+  }
+  75% {
+    transform: rotate(270deg) rotateY(270deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(360deg) rotateY(360deg) scale(1);
+  }
+}
+
+@keyframes prism-glow {
+  0% {
+    opacity: 0.3;
+    filter: blur(8px) hue-rotate(0deg);
+  }
+  100% {
+    opacity: 0.7;
+    filter: blur(12px) hue-rotate(360deg);
+  }
+}`,
+      framework: 'vanilla'
+    },
+    tags: ['prism', 'crystal', 'refraction', 'rainbow', 'background', '3d'],
+    previewType: 'inline',
+    isInteractive: false,
+    createdAt: '2024-01-16T11:15:00Z',
+    updatedAt: '2024-01-16T11:15:00Z'
   },
   {
     id: 'loading-dots',
@@ -1543,6 +1648,80 @@ animate();`
     updatedAt: '2024-01-15T12:55:00Z'
   },
   {
+    id: 'bouncing-cat-loading',
+    title: 'Bouncing Cat Loading',
+    description: 'Cute cats bounce up and down in sequence with playful expressions',
+    category: 'loading-animations',
+    prompt: 'Create an adorable loading animation with cats bouncing up and down in sequence.',
+    code: {
+      html: `<div class="cat-loading">
+  <div class="cat cat-1">🐱</div>
+  <div class="cat cat-2">😸</div>
+  <div class="cat cat-3">😺</div>
+  <div class="loading-text">Loading...</div>
+</div>`,
+      css: `.cat-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cat {
+  font-size: 2.5rem;
+  animation: cat-bounce 1.5s ease-in-out infinite;
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.cat-1 {
+  animation-delay: 0s;
+}
+
+.cat-2 {
+  animation-delay: 0.3s;
+}
+
+.cat-3 {
+  animation-delay: 0.6s;
+}
+
+.loading-text {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #6b7280;
+  animation: text-pulse 2s ease-in-out infinite;
+}
+
+@keyframes cat-bounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-25px) scale(1.1);
+  }
+}
+
+@keyframes text-pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}`,
+      framework: 'vanilla'
+    },
+    tags: ['loading', 'cats', 'cute', 'bounce', 'animals'],
+    previewType: 'inline',
+    isInteractive: false,
+    createdAt: '2024-01-17T11:15:00Z',
+    updatedAt: '2024-01-17T11:15:00Z'
+  },
+  {
     id: 'card-3d-flip',
     title: '3D Card Flip',
     description: 'Card that flips in 3D space revealing content on the back',
@@ -1802,98 +1981,6 @@ animate();`
     isInteractive: false,
     createdAt: '2024-01-16T10:30:00Z',
     updatedAt: '2024-01-16T10:30:00Z'
-  },
-  {
-    id: 'text-orbiting-square',
-    title: 'Text Orbiting Square',
-    description: 'Animated text that moves around the perimeter of a square image',
-    category: 'text-animations',
-    prompt: 'Create animated text that continuously moves around the edges of a square image placeholder.',
-    code: {
-      html: `<div class="snake-text-container">
-  <div class="center-square"></div>
-  <div class="snake-text">SNAKE TEXT</div>
-</div>`,
-      css: `.snake-text-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 400px;
-  width: 400px;
-  margin: 50px auto;
-  position: relative;
-}
-
-.center-square {
-  width: 150px;
-  height: 150px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 8px;
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-}
-
-.center-square::before {
-  content: '📷';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 3rem;
-  color: white;
-  opacity: 0.7;
-}
-
-.snake-text {
-  position: absolute;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  color: #374151;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  white-space: nowrap;
-  animation: snake-path 8s ease-in-out infinite;
-}
-
-@keyframes snake-path {
-  0% {
-    top: 115px;
-    left: 125px;
-    transform: rotate(0deg);
-  }
-  25% {
-    top: 115px;
-    left: 275px;
-    transform: rotate(90deg);
-  }
-  50% {
-    top: 285px;
-    left: 275px;
-    transform: rotate(180deg);
-  }
-  75% {
-    top: 285px;
-    left: 125px;
-    transform: rotate(270deg);
-  }
-  100% {
-    top: 115px;
-    left: 125px;
-    transform: rotate(360deg);
-  }
-}`,
-      framework: 'vanilla'
-    },
-    tags: ['text', 'orbit', 'animation', 'square', 'moving', 'rotate'],
-    previewType: 'inline',
-    isInteractive: false,
-    createdAt: '2024-01-16T10:35:00Z',
-    updatedAt: '2024-01-16T10:35:00Z'
   },
   {
     id: 'fairy-dust-cursor',
@@ -2450,92 +2537,6 @@ document.addEventListener('mousemove', (e) => {
     updatedAt: '2024-01-15T15:45:00Z'
   },
   {
-    id: 'cursor-spotlight',
-    title: 'Cursor Spotlight',
-    description: 'Circular spotlight around cursor reveals background while rest of screen is darkened',
-    category: 'cursor-interactions',
-    prompt: 'Add a circular spotlight around the cursor that reveals the background image while the rest of the screen is darkened.',
-    code: {
-      html: `<div class="spotlight-demo">
-  <div class="spotlight-overlay"></div>
-  <div class="content">
-    <h2>Cursor spotlight 🔦</h2>
-    <div class="hidden-text">
-      <p>✨ Secret message revealed! ✨</p>
-      <p>This text is hidden in the darkness</p>
-
-    </div>
-  </div>
-</div>`,
-      css: `.spotlight-demo {
-  height: 100vh;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  background: black);
-}
-
-.spotlight-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle 100px at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.9) 100%);
-  pointer-events: none;
-  z-index: 10;
-  transition: background 0.1s ease;
-}
-
-.content {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: black;
-  position: relative;
-  z-index: 5;
-}
-
-.content h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  font-weight: 500;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-
-.hidden-text {
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color:black;
-}
-
-.hidden-text p {
-  font-size: 1.1rem;
-  margin: 0.5rem 0;
-}`,
-      javascript: `const overlay = document.querySelector('.spotlight-overlay');
-
-document.addEventListener('mousemove', (e) => {
-  const x = (e.clientX / window.innerWidth) * 100;
-  const y = (e.clientY / window.innerHeight) * 100;
-
-  overlay.style.background = \`radial-gradient(circle 120px at \${x}% \${y}%, transparent 0%, rgba(0, 0, 0, 0.9) 100%)\`;
-});`,
-      framework: 'vanilla'
-    },
-    tags: ['spotlight', 'cursor', 'reveal', 'darkness', 'interactive'],
-    previewType: 'inline',
-    isInteractive: true,
-    createdAt: '2024-01-15T16:00:00Z',
-    updatedAt: '2024-01-15T16:00:00Z'
-  },
-  {
     id: 'pixelated-cursor',
     title: 'Pixelated Cursor',
     description: 'Small pixel squares flicker around the cursor like a glitch effect',
@@ -3061,6 +3062,58 @@ setTimeout(shuffle, 1000);`,
     createdAt: '2024-01-15T17:30:00Z',
     updatedAt: '2024-01-15T17:30:00Z'
   },
+  {
+    id: 'blue-green-gradient-text',
+    title: 'Blue-Green Gradient',
+    description: 'Text with a smooth gradient transition from blue to green and back to blue',
+    category: 'text-animations',
+    prompt: 'Create text with a gradient that starts with blue, transitions to green, and returns to blue.',
+    code: {
+      html: `<div class="gradient-text-demo">
+  <h2 class="gradient-text">Ocean Waves</h2>
+</div>`,
+      css: `.gradient-text-demo {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #f8fafc;
+}
+
+.gradient-text {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(45deg, #3b82f6, #10b981, #06d6a0, #10b981, #3b82f6);
+  background-size: 400% 400%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 6s ease-in-out infinite;
+  margin: 0;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}`,
+      framework: 'vanilla'
+    },
+    tags: ['gradient', 'blue', 'green', 'text', 'smooth'],
+    previewType: 'inline',
+    isInteractive: false,
+    createdAt: '2024-01-17T10:00:00Z',
+    updatedAt: '2024-01-17T10:00:00Z'
+  },
 
   {
     id: 'rainbow-cycle-text',
@@ -3516,59 +3569,6 @@ setInterval(() => {
     updatedAt: '2024-01-16T09:12:00Z'
   },
   {
-    id: 'ripple-hover',
-    title: 'Ripple Hover',
-    description: 'Ripple expands from cursor position when hovering.',
-    category: 'cursor-interactions',
-    prompt: 'Add a ripple animation that expands from the cursor position when hovering.',
-    code: {
-      html: `<button class="ripple-btn">Hover ripple</button>`,
-      css: `.ripple-btn {
-  position: relative;
-  overflow: hidden;
-  background: #111827;
-  color: #fff;
-  border: 0;
-  padding: 12px 22px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.ripple-btn::after {
-  content: '';
-  position: absolute;
-  left: var(--rx, 50%);
-  top: var(--ry, 50%);
-  width: 0;
-  height: 0;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(59,130,246,0.45) 0%, rgba(59,130,246,0.2) 40%, transparent 70%);
-  transition: width 400ms ease, height 400ms ease, opacity 600ms ease;
-  opacity: 0;
-}
-
-.ripple-btn:hover::after {
-  width: 240px;
-  height: 240px;
-  opacity: 1;
-}`,
-      javascript: `document.querySelectorAll('.ripple-btn').forEach(btn => {
-  btn.addEventListener('mousemove', (e) => {
-    const rect = btn.getBoundingClientRect();
-    btn.style.setProperty('--rx', (e.clientX - rect.left) + 'px');
-    btn.style.setProperty('--ry', (e.clientY - rect.top) + 'px');
-  });
-});`,
-      framework: 'vanilla'
-    },
-    tags: ['ripple', 'hover', 'cursor', 'button'],
-    previewType: 'inline',
-    isInteractive: true,
-    createdAt: '2024-01-16T09:15:00Z',
-    updatedAt: '2024-01-16T09:15:00Z'
-  },
-  {
     id: 'floating-lift-hover',
     title: 'Floating Lift',
     description: 'Card lifts upward with a soft shadow when hovered.',
@@ -3844,53 +3844,6 @@ setInterval(() => {
     isInteractive: true,
     createdAt: '2024-01-16T09:48:00Z',
     updatedAt: '2024-01-16T09:48:00Z'
-  }
-  ,
-  {
-    id: 'aurora-text-fill',
-    title: 'Aurora Text Fill',
-    description: 'Subtle blue-to-light-blue gradient infill that shimmers like an aurora',
-    category: 'text-animations',
-    prompt: 'Create a subtle text infill animation using blue to light blue gradients that shimmer like an aurora.',
-    code: {
-      html: `<div class="aurora-demo"><h2 class="aurora-text">Aurora Text</h2></div>`,
-      css: `.aurora-demo {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.aurora-text {
-  font-size: 3rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: radial-gradient(60% 60% at 50% 50%, #93c5fd 0%, rgba(147,197,253,0.6) 25%, rgba(59,130,246,0.5) 50%, rgba(30,58,138,0.7) 75%, #1e3a8a 100%),
-              conic-gradient(from 0deg at 50% 50%, #1e3a8a, #3b82f6, #60a5fa, #93c5fd, #1e3a8a);
-  background-size: 220% 220%, 200% 200%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 2px 8px rgba(59,130,246,0.25));
-  animation: aurora-shift 9s ease-in-out infinite;
-}
-
-@keyframes aurora-shift {
-  0%   { background-position: 20% 30%, 0% 50%;    filter: drop-shadow(0 2px 8px rgba(59,130,246,0.25)); }
-  25%  { background-position: 80% 20%, 40% 70%;  filter: drop-shadow(0 3px 10px rgba(99,102,241,0.30)); }
-  50%  { background-position: 60% 80%, 100% 40%; filter: drop-shadow(0 4px 14px rgba(99,102,241,0.35)); }
-  75%  { background-position: 15% 70%, 60% 10%;  filter: drop-shadow(0 3px 10px rgba(59,130,246,0.28)); }
-  100% { background-position: 20% 30%, 0% 50%;   filter: drop-shadow(0 2px 8px rgba(59,130,246,0.25)); }
-}`,
-      framework: 'vanilla'
-    },
-    tags: ['text', 'aurora', 'gradient', 'blue'],
-    previewType: 'inline',
-    isInteractive: false,
-    createdAt: '2024-01-16T10:25:00Z',
-    updatedAt: '2024-01-16T10:25:00Z'
   }
 ];
 
