@@ -5,6 +5,7 @@
   "dependencies": {
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.126",
+    "@vercel/analytics": "^1.5.0",
     "cursor-effects": "^1.0.17",
     "lucide-react": "^0.544.0",
     "react": "^19.1.1",
