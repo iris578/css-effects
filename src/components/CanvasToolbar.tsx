@@ -20,11 +20,11 @@ const CanvasToolbar: React.FC<CanvasToolbarProps> = ({
   totalCount
 }) => {
   return (
-    <div className="absolute top-4 left-4 z-40">
+    <div className="absolute top-4 left-4 z-40 hidden md:block">
       <div className="flex items-center space-x-2 bg-white rounded-lg shadow-lg border border-gray-200 p-2">
         {/* Logo */}
         <div className="flex items-center space-x-2 px-2">
-          <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+          <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
             <Layers className="w-5 h-5 text-white" />
           </div>
           <div>
@@ -71,7 +71,7 @@ const CanvasToolbar: React.FC<CanvasToolbarProps> = ({
         {/* Shuffle Button */}
         <button
           onClick={onShuffle}
-          className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-purple-600 hover:to-pink-600 transition-colors text-sm font-medium"
+          className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-teal-500 via-cyan-600 to-blue-800 bg-[length:200%] animate-gradient-x text-white rounded-lg hover:shadow-lg transition-all duration-300 text-sm font-medium"
           title="Surprise Me"
         >
           <Shuffle className="w-4 h-4" />
